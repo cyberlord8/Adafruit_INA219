@@ -20,7 +20,9 @@
 /**************************************************************************/
 
 
-#include <Wire.h>
+//#include <Wire.h>
+#include "spark_wiring.h"
+#include "spark_wiring_i2c.h"
 
 #include "adafruit-ina219.h"
 
