@@ -1,7 +1,7 @@
 {
   "name": "adafruit-ina219",
   "author": "K. Townsend Adafruit Industries",
-  "license": "BSD see license.txt",
+  "license": "BSD",
   "version": "v1.0  - First release",
   "description": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle Photon"
 }
