@@ -41,19 +41,20 @@
 void Adafruit_INA219::wireWriteRegister (uint8_t reg, uint16_t value)
 {
   Wire.beginTransmission(ina219_i2caddr);
-  #if ARDUINO >= 100
-    Wire.write(reg);                       // Register
-    Wire.write((value >> 8) & 0xFF);       // Upper 8-bits
-    Wire.write(value & 0xFF);              // Lower 8-bits
-  #else if defined (SPARK)
+  #if defined (SPARK)
       Wire.write(reg);                       // Register
       Wire.write((value >> 8) & 0xFF);       // Upper 8-bits
       Wire.write(value & 0xFF);              // Lower 8-bits
-    #endif
   #else
-    Wire.send(reg);                        // Register
-    Wire.send(value >> 8);                 // Upper 8-bits
-    Wire.send(value & 0xFF);               // Lower 8-bits
+    #if ARDUINO >= 100
+      Wire.write(reg);                       // Register
+      Wire.write((value >> 8) & 0xFF);       // Upper 8-bits
+      Wire.write(value & 0xFF);              // Lower 8-bits
+    #else
+      Wire.send(reg);                        // Register
+      Wire.send(value >> 8);                 // Upper 8-bits
+      Wire.send(value & 0xFF);               // Lower 8-bits
+    #endif
   #endif
   Wire.endTransmission();
 }
@@ -67,14 +68,15 @@ void Adafruit_INA219::wireReadRegister(uint8_t reg, uint16_t *value)
 {
 
   Wire.beginTransmission(ina219_i2caddr);
-  #if ARDUINO >= 100
-    Wire.write(reg);                       // Register
-  #else if defined (SPARK)
+    #if defined (SPARK)
       Wire.write(reg);
+    #else
+      #if ARDUINO >= 100
+        Wire.write(reg);                       // Register
+      #else
+        Wire.send(reg);                        // Register
+      #endif
     #endif
-  #else
-    Wire.send(reg);                        // Register
-  #endif
   Wire.endTransmission();
   
   delay(1); // Max 12-bit conversion time is 586us per sample
