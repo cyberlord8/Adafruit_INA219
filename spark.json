@@ -1,0 +1,7 @@
+{
+  "name": "Adafruit INA219 Current Sensor LIbrary",
+  "author": "K. Townsend (Adafruit Industries)",
+  "license": "BSD (see license.txt)",
+  "version": "v1.0  - First release",
+  "description": "This is a library for the Adafruit INA219 breakout board"
+}
