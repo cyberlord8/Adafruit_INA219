@@ -17,8 +17,6 @@
 */
 /**************************************************************************/
 
-#define SPARK
-
 #if defined (SPARK)
   #include "application.h"
 #else
