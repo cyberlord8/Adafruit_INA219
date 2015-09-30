@@ -17,13 +17,20 @@
 */
 /**************************************************************************/
 
-#if ARDUINO >= 100
- #include "Arduino.h"
+#if defined (SPARK)
+  #include "application.h"
 #else
- #include "WProgram.h"
+  #if defined(ARDUINO) && ARDUINO >= 100
+    #include "Arduino.h"
+  #else
+    #include "WProgram.h"
+  #endif
+  // here could follow some of the includes only needed on Arduino
+  // see bellow
+
 #endif
 
-#include <Wire.h>
+//#include <Wire.h>
 
 /*=========================================================================
     I2C ADDRESS/BITS
