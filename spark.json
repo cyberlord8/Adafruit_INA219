@@ -1,5 +1,5 @@
 {
-  "name": "Adafruit INA219 Current Sensor LIbrary",
+  "name": "Adafruit_INA219",
   "author": "K. Townsend (Adafruit Industries)",
   "license": "BSD (see license.txt)",
   "version": "v1.0  - First release",
