@@ -1,4 +1,4 @@
-Adafruit_INA219
+adafruit-ina219
 ===============
 
 INA219 Current Sensor
