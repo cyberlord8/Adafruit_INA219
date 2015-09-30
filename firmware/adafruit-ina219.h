@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*! 
-    @file     Adafruit_INA219.h
+    @file     adafruit-ina219.h
     @author   K. Townsend (Adafruit Industries)
 	@license  BSD (see license.txt)
 	
