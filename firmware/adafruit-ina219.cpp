@@ -82,12 +82,16 @@ void Adafruit_INA219::wireReadRegister(uint8_t reg, uint16_t *value)
   delay(1); // Max 12-bit conversion time is 586us per sample
 
   Wire.requestFrom(ina219_i2caddr, (uint8_t)2);  
-  #if ARDUINO >= 100
-    // Shift values to create properly formed integer
-    *value = ((Wire.read() << 8) | Wire.read());
+  #if defined (SPARK)
+      *value = ((Wire.read() << 8) | Wire.read());
   #else
-    // Shift values to create properly formed integer
-    *value = ((Wire.receive() << 8) | Wire.receive());
+    #if ARDUINO >= 100
+      // Shift values to create properly formed integer
+      *value = ((Wire.read() << 8) | Wire.read());
+    #else
+      // Shift values to create properly formed integer
+      *value = ((Wire.receive() << 8) | Wire.receive());
+    #endif
   #endif
 }
 
