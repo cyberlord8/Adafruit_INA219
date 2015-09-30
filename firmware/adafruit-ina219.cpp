@@ -18,15 +18,11 @@
     v1.0 - First release
 */
 /**************************************************************************/
-#if ARDUINO >= 100
- #include "Arduino.h"
-#else
- #include "WProgram.h"
-#endif
+
 
 #include <Wire.h>
 
-#include "Adafruit_INA219.h"
+#include "adafruit-ina219.h"
 
 /**************************************************************************/
 /*! 
