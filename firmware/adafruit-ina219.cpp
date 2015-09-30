@@ -45,8 +45,7 @@ void Adafruit_INA219::wireWriteRegister (uint8_t reg, uint16_t value)
     Wire.write(reg);                       // Register
     Wire.write((value >> 8) & 0xFF);       // Upper 8-bits
     Wire.write(value & 0xFF);              // Lower 8-bits
-  #else
-    #if defined (SPARK)
+  #else if defined (SPARK)
       Wire.write(reg);                       // Register
       Wire.write((value >> 8) & 0xFF);       // Upper 8-bits
       Wire.write(value & 0xFF);              // Lower 8-bits
@@ -70,8 +69,7 @@ void Adafruit_INA219::wireReadRegister(uint8_t reg, uint16_t *value)
   Wire.beginTransmission(ina219_i2caddr);
   #if ARDUINO >= 100
     Wire.write(reg);                       // Register
-  #else
-    #if defined (SPARK)
+  #else if defined (SPARK)
       Wire.write(reg);
     //#endif
   #else
