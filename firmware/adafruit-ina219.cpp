@@ -21,8 +21,8 @@
 
 
 //#include <Wire.h>
-#include "spark_wiring.h"
-#include "spark_wiring_i2c.h"
+//#include "spark_wiring.h"
+//#include "spark_wiring_i2c.h"
 
 #include "adafruit-ina219.h"
 
@@ -33,7 +33,7 @@
 /**************************************************************************/
 void Adafruit_INA219::wireWriteRegister (uint8_t reg, uint16_t value)
 {
-  Wire.beginTransmission(ina219_i2caddr);
+  /*Wire.beginTransmission(ina219_i2caddr);
   #if ARDUINO >= 100
     Wire.write(reg);                       // Register
     Wire.write((value >> 8) & 0xFF);       // Upper 8-bits
@@ -43,7 +43,7 @@ void Adafruit_INA219::wireWriteRegister (uint8_t reg, uint16_t value)
     Wire.send(value >> 8);                 // Upper 8-bits
     Wire.send(value & 0xFF);               // Lower 8-bits
   #endif
-  Wire.endTransmission();
+  Wire.endTransmission();*/
 }
 
 /**************************************************************************/
@@ -53,7 +53,7 @@ void Adafruit_INA219::wireWriteRegister (uint8_t reg, uint16_t value)
 /**************************************************************************/
 void Adafruit_INA219::wireReadRegister(uint8_t reg, uint16_t *value)
 {
-
+/*
   Wire.beginTransmission(ina219_i2caddr);
   #if ARDUINO >= 100
     Wire.write(reg);                       // Register
@@ -71,7 +71,7 @@ void Adafruit_INA219::wireReadRegister(uint8_t reg, uint16_t *value)
   #else
     // Shift values to create properly formed integer
     *value = ((Wire.receive() << 8) | Wire.receive());
-  #endif
+  #endif*/
 }
 
 /**************************************************************************/
@@ -154,7 +154,7 @@ void Adafruit_INA219::setCalibration_32V_2A(void)
   ina219_powerDivider_mW = 2;     // Power LSB = 1mW per bit (2/1)
 
   // Set Calibration register to 'Cal' calculated above	
-  wireWriteRegister(INA219_REG_CALIBRATION, ina219_calValue);
+  //wireWriteRegister(INA219_REG_CALIBRATION, ina219_calValue);
   
   // Set Config register to take into account the settings above
   uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
@@ -162,7 +162,7 @@ void Adafruit_INA219::setCalibration_32V_2A(void)
                     INA219_CONFIG_BADCRES_12BIT |
                     INA219_CONFIG_SADCRES_12BIT_1S_532US |
                     INA219_CONFIG_MODE_SANDBVOLT_CONTINUOUS;
-  wireWriteRegister(INA219_REG_CONFIG, config);
+  //wireWriteRegister(INA219_REG_CONFIG, config);
 }
 
 /**************************************************************************/
@@ -364,7 +364,7 @@ void Adafruit_INA219::begin(uint8_t addr) {
 }
 
 void Adafruit_INA219::begin(void) {
-  Wire.begin();    
+  //Wire.begin();    
   // Set chip to large range config values to start
   setCalibration_32V_2A();
 }
