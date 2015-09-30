@@ -20,8 +20,8 @@
 #include application.h
 
 //#include <Wire.h>
-#include "spark_wiring.h"
-#include "spark_wiring_i2c.h"
+//#include "spark_wiring.h"
+//#include "spark_wiring_i2c.h"
 
 /*=========================================================================
     I2C ADDRESS/BITS
