@@ -14,6 +14,8 @@
 	@section  HISTORY
 
     v1.0  - First release
+    
+    Modified by Timothy Millea for use with the Particle Photon 30 Sep 2015
 */
 /**************************************************************************/
 
